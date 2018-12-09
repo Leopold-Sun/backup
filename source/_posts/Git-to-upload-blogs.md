@@ -5,6 +5,9 @@ tags: [blog_conf]
 categories: blog
 ---
 
+- Links worth of considerring
+> https://blog.csdn.net/shile/article/details/78714189
+
 - Git init in the directory
 > `git init`
 > Initialized empty Git repository in /media/pold/Work/Leopold.Sun/Blog/leopold-sun/.git/
@@ -52,3 +55,29 @@ categories: blog
 > `git merge origin:${remote branch}$` *local branch is hided* 
 > push local branch to remote branch
 > `git push origin ${remote branch}:${local branch}`
+
+- Make a backup branch for your hexo configuration
+> `git init` *initialize your local repo*
+> `git add ${files you wanted to backup}`
+> `git commit -m "message"`
+> `git branch ${new branch}`
+> `git checkout ${new branch}`
+> `git remote add origin ${repo url}`
+> `git push origin ${new branch}` *this would creat a new branch on your remote branch*
+
+- Blog migrated to a new env
+> you should already have installed nodejs+git+hexo
+> `git clone -b ${backup branch} git@github.com:user/user.github.io.git  //将Github中hexo分支clone到本地`
+> `cd user.github.io`
+> `npm install`
+> `git init`
+> `git remote add origin ${repo url}`
+> `git pull origin ${backup branch on origin repo}`
+
+- Backup and deployment of new blogs
+> `git pull origin ${local branch}` *本地与远端融合*
+> `hexo new post "new post name"` 
+> `git add source`
+> `git commit -m "message"`
+> `git push origin ${the backup branch}` *backup*
+> `hexo d -g` *deployment*
