@@ -30,5 +30,5 @@ tags: [VPP]
 > `systemctl start vpp.service` *start vpp.service with systemctl*
 > `systemctl stop vpp.service`
 > `systemctl status vpp.service`
-> If the binded nic is not supported by dpdk, the status contains the following information but with sligth differences
+> If the binded nic is not supported by dpdk, the status contains the following information but with slight differences
 > *Dec 11 16:49:42 pold vpp[890]: dpdk: Unsupported PCI device 0x1969:0x10a0 found at PCI address 0000:02:00.0*
