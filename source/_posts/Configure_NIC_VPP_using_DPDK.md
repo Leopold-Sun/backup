@@ -63,4 +63,4 @@ tags: [VPP]
 > `set int state ${nic name} up`
 
 - Assign ip address to the nic
-> `set int ip address ${nic name} ${ip address}` *I was toled that modifying the first 16 bits of IPv4 number will make it not belongs to the same internet*
+> `set int ip address ${nic name} ${ip address}` *I was told that modifying the first 16 bits of IPv4 number will make it not belongs to the same internet*
