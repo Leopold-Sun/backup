@@ -1,5 +1,5 @@
 ---
-titles: How to compile shared library
+title: How to compile shared library
 date: 2018-12-12 14:02
 tags: [Compiler]
 ---
