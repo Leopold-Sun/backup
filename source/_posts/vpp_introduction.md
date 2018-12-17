@@ -6,8 +6,8 @@ tags: [VPP]
 
 ### Used links
 
-- ![What is VPP](https://wiki.fd.io/view/VPP/What_is_VPP%3F)
-- ![FD.io VPP](https://wiki.fd.io/view/VPP)
+- [What is VPP](https://wiki.fd.io/view/VPP/What_is_VPP%3F)
+- [FD.io VPP](https://wiki.fd.io/view/VPP)
 
 ### Vector Packet Processing
 
