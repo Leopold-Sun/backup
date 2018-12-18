@@ -36,4 +36,4 @@ tags: [VPP]
 
 #### Use case: vpp as a vSwitch/vRoute
 
-
+![Local Programmability](https://wiki.fd.io/images/1/15/VPP_App_as_vSwitch_with_local_programmability_x260.jpg)

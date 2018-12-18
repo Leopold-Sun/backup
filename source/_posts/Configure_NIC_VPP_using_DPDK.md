@@ -36,7 +36,8 @@ tags: [VPP]
 - Use vfio-pci driver module
 > `sudo modprobe vfio-pci` *use vfio-pci module*
 > `lsmod | grep vfio` *for check use*
-> `sudo dpdk-devbind.py -b vfio-pci ${nic name or its pci number}` *bind nic to dpdk*
+> `sudo dpdk-devbind.py -b vfio-pci ${nic name or its pci number}` *bind nic to dpdk, but if you wantuuse igb-uio or uio-pci-generic modules rather than vfio-pci,just declare using "uio-driver ${uio driver name} in /etc/vpp/startup .conf"*
+> *## Change UIO driver used by VPP, Options are: igb_uio, vfio-pci,uio_pci_generic or auto (default)*
 
 - If the bind option goes wrong
 > `dmesg | grep -i vfio` *to check error information*
