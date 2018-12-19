@@ -36,4 +36,16 @@ tags: [VPP]
 
 #### Use case: vpp as a vSwitch/vRoute
 
-![Local Programmability](https://wiki.fd.io/images/1/15/VPP_App_as_vSwitch_with_local_programmability_x260.jpg)
+![vSwitch](https://wiki.fd.io/images/1/15/VPP_App_as_vSwitch_with_local_programmability_x260.jpg)
+
+#### Local Programmability
+
+![local programmability](https://img-blog.csdn.net/20160421141931994)
+
+- 通信行为
+local环境下 external app 通过 a low level API 建立与 vpp app 之间的通信，合理性能可达 500k routes/sec。
+
+- 通信方式
+shared memory/message queue。
+> *The implementation is on a local on a box or container. All CLI tasks can be done through API calls.*
+
