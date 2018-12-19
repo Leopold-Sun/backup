@@ -8,6 +8,7 @@ tags: [VPP]
 
 - [What is VPP](https://wiki.fd.io/view/VPP/What_is_VPP%3F)
 - [FD.io VPP](https://wiki.fd.io/view/VPP)
+- [知乎](https://zhuanlan.zhihu.com/p/40049446)
 
 ### Vector Packet Processing
 
@@ -19,11 +20,15 @@ tags: [VPP]
 - 每个包都会引入一组相同的cache未命中（标量工作方式使cache不断的被擦除加载）
 - 增大cache容量是“唯一”的优化方式
 
+![scalar packet processing graph](https://pic2.zhimg.com/80/v2-e2d556c865f20015e281032d2d1a218d_hd.jpg)
+
 #### 矢量包处理
 
 - 解决I cache抖动问题 (L1 I cache 大约32K，D cache大约32K)
 - 缓和了具有依赖性的读操作的延迟问题（该延迟可以通过pre-fetching方式消除）
 - 解决stack depth/D cache misses on stack address
+
+![Vector processing of IPv4 packets using DPDK](https://pic2.zhimg.com/80/v2-43be19e7b128e1d268aa2a0608d992e9_hd.jpg)
 
 #### vector processing procedure
 
