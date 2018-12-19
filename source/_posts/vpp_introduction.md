@@ -9,7 +9,7 @@ tags: [VPP]
 - [What is VPP](https://wiki.fd.io/view/VPP/What_is_VPP%3F)
 - [FD.io VPP](https://wiki.fd.io/view/VPP)
 - [知乎](https://zhuanlan.zhihu.com/p/40049446)
-- [SRI/OV + DPDK](https://www.metaswitch.com/blog/accelerating-the-nfv-data-plane)
+- [SRI/OV DPDK](https://www.metaswitch.com/blog/accelerating-the-nfv-data-plane)
 
 ### Vector Packet Processing
 
