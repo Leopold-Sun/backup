@@ -7,4 +7,4 @@ tags: [VPP]
 ### Referrences
 
 - [Build a Fast Network Stack with Vector Packet Processing (VPP) on an Intel® Architecture Server](https://software.intel.com/en-us/articles/build-a-fast-network-stack-with-vpp-on-an-intel-architecture-server)
-- [VPP/Command-line Interface (CLI) Guide](https://wiki.fd.io/view/VPP/Command-line_Interface_(CLI)_Guide)
+- [VPP/Command-line Interface (CLI) Guide]<https://wiki.fd.io/view/VPP/Command-line_Interface_(CLI)_Guide>
