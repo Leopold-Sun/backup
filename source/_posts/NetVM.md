@@ -16,7 +16,7 @@ SDN也在为提升网络配置能力而进步，通过几个方面提高网络�
 
 DPDK平台支持应用绕过内核直接访问NICs，具体实现是使用Linux的huge pages预先配置很大的内存区域，然后直接从NICs中DMA数据到预先配置的内存区域。 
 
-![DPDK’s run-time environment over Linux](Leopold-Sun.github.io/images/DPDK-runtimr-over-linux.png)
+![DPDK’s run-time environment over Linux](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/DPDK-runtimr-over-linux.png)
  
 DPDK有一个poll mode driver允许VM应用绕过内核直接访问硬件设备。 
 
