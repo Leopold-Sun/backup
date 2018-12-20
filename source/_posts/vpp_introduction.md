@@ -35,7 +35,7 @@ tags: [VPP]
 - 每个包都会引入一组相同的cache未命中（标量工作方式使cache不断的被擦除加载）
 - 增大cache容量是“唯一”的优化方式
 
-![scalar packet processing graph](https://pic2.zhimg.com/80/v2-e2d556c865f20015e281032d2d1a218d_hd.jpg)
+![scalar packet processing graph](https://www.metaswitch.com/hs-fs/hubfs/Blogs/fd-io-pre-vpp-forwarding_graph.png?width=800&height=497&name=fd-io-pre-vpp-forwarding_graph.png)
 
 #### 矢量包处理
 
@@ -43,7 +43,7 @@ tags: [VPP]
 - 缓和了具有依赖性的读操作的延迟问题（该延迟可以通过pre-fetching方式消除）
 - 解决stack depth/D cache misses on stack address
 
-![Vector processing of IPv4 packets using DPDK](https://pic2.zhimg.com/80/v2-43be19e7b128e1d268aa2a0608d992e9_hd.jpg)
+![Vector processing of IPv4 packets using DPDK](https://www.metaswitch.com/hs-fs/hubfs/Blogs/fd-io-vpp-forwarding_graph.png?width=800&height=496&name=fd-io-vpp-forwarding_graph.png)
 
 #### vector processing procedure
 
