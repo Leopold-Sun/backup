@@ -12,21 +12,6 @@ tags: [VPP]
 - [SRI/OV DPDK](https://www.metaswitch.com/blog/accelerating-the-nfv-data-plane)
 - [FD.io Takes Over VPP](https://www.metaswitch.com/blog/fd.io-takes-over-vpp)
 
-### Preliminaries
-
-#### Include DPDK
-
-- Referrence:[SRIOV DPDK](https://www.metaswitch.com/blog/accelerating-the-nfv-data-plane)
-
-> *The Data Plane Development Kit includes memory, buffer and queue managers, along with a flow classification engine and a set of poll mode drivers. Similar to the Linux New API (NAPI) drivers, it is the DPDK poll mode that performs the all-important interrupt mitigation that, as we know from SR-IOV, is critical to increasing the overall performance of the application. Operating in Polled Mode during periods of high traffic volume, the kernel periodically checks the interface for incoming packets, rather than waiting for an interrupt. To prevent "poll-ution" (yes, I just made that up to describe an excess of polls when no data is waiting for retrieval) while not leaving packets waiting when they do arrive (thereby increasing latency and jitter) DPDK can switch to interrupt mode when the flow of incoming packets falls below a certain threshold.*
-> *With the queue, memory and buffer managers, DPDK can also implement zero-copy DMA into large first in, first out (FIFO) ring buffers located in user space memory, a process akin to PF_RING. That, again, dramatically improves overall packet acquisition performance by not only enabling faster capture but smoothing-out bursty inbound traffic, allowing the application to handle the packets more consistently and therefore more efficiently. Plus, if the guest CPU gets busy with applications processing, it can leave the packets in the buffer a little longer without the fear of those packets being discarded. Naturally, this buffer -- along with the poll/interrupt thresholds -- needs to be managed closely with latency-sensitive applications such as voice.*
-
-![The FIFO Ring Buffer](https://www.metaswitch.com/hs-fs/hubfs/accelerating-the-NFV-data-plane-FIFO-ring.png?t=1451591795958&width=750&height=212&name=accelerating-the-NFV-data-plane-FIFO-ring.png)
-![DPDK Accelerated OVS Within User Space](https://www.metaswitch.com/hubfs/accelerating-the-NFV-data-plane-ovs-micro-mega-flow-DPDK.png?t=1451591795958)
-![Data plane acceleration testing results and comparisons, courtesy of HPE](https://www.metaswitch.com/hs-fs/hubfs/accelerating-the-NFV-data-plane-hp-tests-results.png?t=1451591795958&width=750&height=222&name=accelerating-the-NFV-data-plane-hp-tests-results.png)
-
-#### Include 
-
 ----------------------------------------
 
 ### Vector Packet Processing
