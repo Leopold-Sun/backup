@@ -25,7 +25,12 @@ tags: [VPP]
 ![DPDK Accelerated OVS Within User Space](https://www.metaswitch.com/hubfs/accelerating-the-NFV-data-plane-ovs-micro-mega-flow-DPDK.png?t=1451591795958)
 ![Data plane acceleration testing results and comparisons, courtesy of HPE](https://www.metaswitch.com/hs-fs/hubfs/accelerating-the-NFV-data-plane-hp-tests-results.png?t=1451591795958&width=750&height=222&name=accelerating-the-NFV-data-plane-hp-tests-results.png)
 
+#### Include 
+
+----------------------------------------
+
 ### Vector Packet Processing
+- - [What is VPP](https://wiki.fd.io/view/VPP/What_is_VPP%3F)
 
 > *VPP uses vector processing as opposed to scalar processing. Scalar packet processing refers to the processing of one packet at a time. That older, traditional approach entails processing an interrupt, and traversing the call stack (a calls b calls c... return return return from the nested calls... then return from Interrupt). That process then does one of 3 things: punt, drop, or rewrite/forward the packet.*
 
