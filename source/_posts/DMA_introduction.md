@@ -25,7 +25,7 @@ tags: [NFV]
 > *With the queue, memory and buffer managers, DPDK can also implement zero-copy DMA into large first in, first out (FIFO) ring buffers located in user space memory, a process akin to PF_RING. That, again, dramatically improves overall packet acquisition performance by not only enabling faster capture but smoothing-out bursty inbound traffic, allowing the application to handle the packets more consistently and therefore more efficiently. Plus, if the guest CPU gets busy with applications processing, it can leave the packets in the buffer a little longer without the fear of those packets being discarded. Naturally, this buffer -- along with the poll/interrupt thresholds -- needs to be managed closely with latency-sensitive applications such as voice.*
 
 ![The FIFO Ring Buffer](https://www.metaswitch.com/hs-fs/hubfs/accelerating-the-NFV-data-plane-FIFO-ring.png?t=1451591795958&width=750&height=212&name=accelerating-the-NFV-data-plane-FIFO-ring.png)
-![Linux with/without DPDK](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi4wNbO3K3fAhViilQKHUclBdoQjRx6BAgBEAU&url=https%3A%2F%2Fblog.selectel.com%2Fintroduction-dpdk-architecture-principles%2F&psig=AOvVaw2sPpsU6BVwByOa3O2agUV4&ust=1545371661240033)
+![Linux with/without DPDK](https://blog.selectel.com/wp-content/uploads/2016/11/PR-3303.png)
 ![Intel DPDK Libraries and environment abstraction layer](https://camo.githubusercontent.com/0e41cf40c009ffe95ff2c920e210b9ed850900a5/68747470733a2f2f7777772e657665726e6f74652e636f6d2f6c2f41533536724c58745a4752494e4c6b615268525a65564d617338424b48664d74706b49422f696d6167652e706e67)
 
 - DPDK bypassing kernel
