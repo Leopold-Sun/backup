@@ -16,13 +16,13 @@ SDN也在为提升网络配置能力而进步，通过几个方面提高网络�
 
 DPDK平台支持应用绕过内核直接访问NICs，具体实现是使用Linux的huge pages预先配置很大的内存区域，然后直接从NICs中DMA数据到预先配置的内存区域。 
 
-![DPDK’s run-time environment over Linux](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/DPDK-runtimr-over-linux.png)
+![DPDK’s run-time environment over Linux](Leopold-Sun.github.io/images/DPDK-runtimr-over-linux.png)
  
 DPDK有一个poll mode driver允许VM应用绕过内核直接访问硬件设备。 
 
 但是即使DPDK实现了用户态高性能应用，但是没有实现一个完整的矿街，可以用来构建、使交互复杂的网络功能。除此之外，DPDK支持SR-IOV技术，SR-IOV可以在逻辑上划分一个NIC并将一个单独的基于PCI的NIC（称为“VF-Virtual Function”）暴露给每个VM。 
 
-![DPDK uses per-port switching with SR-IOV](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/DPDK%20uses%20per-port%20switching%20with%20SR-IOV.png)
+![DPDK uses per-port switching with SR-IOV](Leopold-Sun.github.io/blob/master/images/DPDK%20uses%20per-port%20switching%20with%20SR-IOV.png)
 
 Fig. 2. DPDK uses per-port switching with SR-IOV, whereas NetVM pro- 
 vides a global switch in the hypervisor and shared-memory packet transfer 
@@ -34,7 +34,7 @@ vides a global switch in the hypervisor and shared-memory packet transfer
 
 ### NFV平台差异 
 
-![Architectural differences for packet delivery in virtualized platform](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/Architectural%20differences%20for%20packet%20delivery%20in%20virtualized%20platform.png)
+![Architectural differences for packet delivery in virtualized platform](Leopold-Sun.github.io/blob/master/images/Architectural%20differences%20for%20packet%20delivery%20in%20virtualized%20platform.png)
 
 Fig. 4. Architectural differences for packet delivery in virtualized platform. 
 > (a) Generic. 
@@ -82,7 +82,7 @@ NetVM的switch也能使用像VM负载、日间时间、动态配置的策略此�
 
 配合使用OpenFlow SDN Controller 和一个NFV 控制器，前者用于控制数据Flow，后者用于将决定何时、何处放置NFs。二者之所可以紧密写协作是因为，数据流往往都能够遍历多个NFs，也可能希望启用新的服务并重新进行数据流的处理。所以需要维护现存数据流与NFs的状态以便于协作处理。 
 
-![Net VM platforms are distributed in the network (and/or data centers)](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/NetVM%20platforms%20are%20distributed%20in%20the%20network.png)
+![Net VM platforms are distributed in the network (and/or data centers)](Leopold-Sun.github.io/blob/master/images/NetVM%20platforms%20are%20distributed%20in%20the%20network.png)
 
 黑点代表一个维护多个NFs的NetVM平台，它们通过NFV Orchestrator （例如，the Nf-Vi interface deﬁned in ETSI ）与SDN Controller （OpenFlow协议）进行管理，NetVM通过secure channels提供两者的接口。可以将支持NetVM平台的servers灵活部署到流路径中需要额外功能的位置。 
 
@@ -105,7 +105,7 @@ Fig. 4. Architectural differences for packet delivery in virtualized platform.
 
 ### 零复制数据（包）传递 
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/NetVM%20only%20requires%20a%20simple%20descriptor%20to%20be%20copied%20via%20shared.png)
+![](Leopold-Sun.github.io/blob/master/images/NetVM%20only%20requires%20a%20simple%20descriptor%20to%20be%20copied%20via%20shared.png)
 
 NetVM可以将路由器、代理等复杂的网络服务固定在一个单一主机上，同时为了支持这些组件（服务）间的快速通信，NetVM设计实现两种通信通道以供数据转移： 
 
@@ -129,7 +129,7 @@ NetVM可以将路由器、代理等复杂的网络服务固定在一个单一主
 此方法的伸缩性也可以得到保证，只需要创建额外的队列（被两个线程共同管理）就可以了。由于NIC支持RSS，NIC可以对数据流进行合理分配（给众多queues）以保证负载平衡。 
 大内存页也不需要设计锁来进行数据同步，因为同一时间一个数据包的控制权只在一个VM上，因为其描述符只存在一个VM的ring buffer中。 
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/Lockless%20and%20NUMA-Aware%20Queue%20Thread%20Management.png)
+![](Leopold-Sun.github.io/blob/master/images/Lockless%20and%20NUMA-Aware%20Queue%20Thread%20Management.png)
 
 每个圈代表一个核。hypervisor中的每个核从NIC中收包、将描述符放入队列尾部；guest os线程从队列头部读取描述符、处理数据包、放入出队列；hypervisor从出队列尾部读取描述符；NIC发送对应的包。此线程、队列分离能够保证同一时刻是有一个实体访问数据。 
 
@@ -142,7 +142,7 @@ NetVM可以将路由器、代理等复杂的网络服务固定在一个单一主
 使用NUMA感知模式的大内存页避免上述问题。 
 当需要查找大内存页面的区域时，会将内存区域统一分配到所有的sockets中，从而从sockets本地的DIMM中分配总共（大页面大小/sockets数量）字节的内存。同时创建数量与sockets一致的收/发线程，每个线程只处理对应socket的内存页中的数据。Guest VMs中的线程创建后被固定到合适的socket上。保证不需要在sockets间传递cache line，数据被储存在本地内存bank中，要么被host访问，要么被guest访问。 
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/Lockless%20and%20NUMA-Aware%20Queue%20Thread%20Management.png)
+![](Leopold-Sun.github.io/blob/master/images/Lockless%20and%20NUMA-Aware%20Queue%20Thread%20Management.png)
 
 上图表示了灰socket与白socket的管理。灰线程处理的数据不会转移到白线程中，提高内存访问速度，避免cache一致性开销（因为各线程负责自己对应的socket数据的处理）。 
 
@@ -156,7 +156,7 @@ NetVM可以将路由器、代理等复杂的网络服务固定在一个单一主
 - Solution
 如下图，NetVM将大内存页以连续的区域映射给guests。 
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/The%20huge%20pages%20spread%20across%20the%20host%E2%80%99s%20memory.png)
+![](Leopold-Sun.github.io/blob/master/images/The%20huge%20pages%20spread%20across%20the%20host%E2%80%99s%20memory.png)
 
 NetVM模拟PCI设备（实现中有讲述）将大内存页映射到guests，guest通过驱动器轮询虚拟PCI设备将连续的内存区域映射到自己的用户空间。但以上的机制是不会暴露给未信任guests的，未信任guests通过hypervisor访问常规的网络接口。 
 
@@ -182,7 +182,7 @@ NIC收包DMA到某个大内存页；创建的索引映射（index map）将包�
 - Solution
 信任、不信任VMs分组管理。VM创建之后分配到信任组，trust group决定其可以访问的内存区域。NetVM仅支持信任分类VMs，可能还会有更细致的分类方式。每个用户可以控制一个trust group。 
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/Lockless%20and%20NUMA-Aware%20Queue%20Thread%20Management.png)
+![](Leopold-Sun.github.io/blob/master/images/Lockless%20and%20NUMA-Aware%20Queue%20Thread%20Management.png)
 
 每个VMs group有自己的内存区域，每个VM都配置一个ring buffer以供与hypervisor通信。 
 
@@ -204,7 +204,7 @@ NFs的通用部署应当由SDN或NF应用层通知NFV orchestrator部署正确�
 
 - NetLib （用于在VM用户空间创建in-network功能的库） 
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/NetVM%E2%80%99s%20architecture%20spans%20the%20guest%20and%20host%20systems.png)
+![](Leopold-Sun.github.io/blob/master/images/NetVM%E2%80%99s%20architecture%20spans%20the%20guest%20and%20host%20systems.png)
 
 Fig. 8. NetVM's architecture spans the guest and host systems; an emulated 
 PCI device is used to share memory. 
@@ -216,7 +216,7 @@ NetVM Manager在hypervisor中运行，提供QEMU与DPDK间的信道，QEMU可以
 
 NetVM Manager保存关于VMs Trust group的信息、switching 方式。其处理SDN controller与NFV管理器之间的通信。 
 
-![Net VM platforms are distributed in the network (and/or data centers).](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/NetVM%20platforms%20are%20distributed%20in%20the%20network.png)
+![Net VM platforms are distributed in the network (and/or data centers).](Leopold-Sun.github.io/blob/master/images/NetVM%20platforms%20are%20distributed%20in%20the%20network.png)
  
 
 ### NetVM Core Engine 
@@ -243,7 +243,7 @@ NetVM需要的两个隔离的内存区域：
 
 - 大内存页共享内存（地址存在BAR#0寄存器）。在hypervisor中是不连续的，但是可以使用模拟PCI在VM中映射为连续的内存区域。 
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/The%20huge%20pages%20spread%20across%20the%20host%E2%80%99s%20memory.png)
+![](Leopold-Sun.github.io/blob/master/images/The%20huge%20pages%20spread%20across%20the%20host%E2%80%99s%20memory.png)
 
 Fig. 7. The huge pages spread across the host's memory must be contiguously 
 aligned within VMS. Net VM must be able to quickly translate the address of a 
@@ -255,7 +255,7 @@ Guest VM会希望使用NetVM的高速IO，运行一个前端驱动器（front-en
 
 NetLib提供PCI与用户应用之间的接口。用户应用只需要提供一个包含配置设置（如内核数、回调函数（类似Linun内核的NetFilter）等）的结构。当NIC poll到数据包时，调用回调函数，然后应用决定读写数据操作（舍弃、NIC发送、传递给其他VM）。 
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/NetLib%20provides%20a%20bridge%20between%20PCI%20device%20and%20user%20applications.png)
+![](Leopold-Sun.github.io/blob/master/images/NetLib%20provides%20a%20bridge%20between%20PCI%20device%20and%20user%20applications.png)
 
 NetLib provides a bridge between PCI device and user applications. 
 图9表示一个数据流。hypervisor收到一个包；NetLib的一个线程fetch包给用户应用并回调该应用；应用处理包，然会一个action（丢弃……等）；NetLib将该action放入描述符并放到发送队列。 
@@ -278,18 +278,18 @@ NetVM支持的三种功能部署方式：
 
 ## 实验评估
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/Forwarding%20rate%20as%20a%20function%20of%20input%20rate%20for%20NetVM.png)
+![](Leopold-Sun.github.io/blob/master/images/Forwarding%20rate%20as%20a%20function%20of%20input%20rate%20for%20NetVM.png)
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/NetVM%20provides%20a%20line-rate%20speed%20regardless%20of%20packet%20sizes.png)
+![](Leopold-Sun.github.io/blob/master/images/NetVM%20provides%20a%20line-rate%20speed%20regardless%20of%20packet%20sizes.png)
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/NetVM%20scales%20to%2036%20Gbps%20when%20using%20four%20ports.png)
+![](Leopold-Sun.github.io/blob/master/images/NetVM%20scales%20to%2036%20Gbps%20when%20using%20four%20ports.png)
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/Inter-VM%20communication%20using%20NetVM%20can%20achieve%20a%20line-rate%20speed.png)
+![](Leopold-Sun.github.io/blob/master/images/Inter-VM%20communication%20using%20NetVM%20can%20achieve%20a%20line-rate%20speed.png)
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/Average%20roundtrip%20latency%20for%20L3%20forwarding.png)
+![](Leopold-Sun.github.io/blob/master/images/Average%20roundtrip%20latency%20for%20L3%20forwarding.png)
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/State-dependent%20(or%20data-dependent)%20load-balancing%20enables%20flexible.png)
+![](Leopold-Sun.github.io/blob/master/images/State-dependent%20(or%20data-dependent)%20load-balancing%20enables%20flexible.png)
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/Time%20to%20NF%20deployment.png)
+![](Leopold-Sun.github.io/blob/master/images/Time%20to%20NF%20deployment.png)
 
-![](https://github.com/Leopold-Sun/Leopold-Sun.github.io/blob/master/images/Denial%20of%20service%20attack%20mitigation.png)
+![](Leopold-Sun.github.io/blob/master/images/Denial%20of%20service%20attack%20mitigation.png)
