@@ -11,6 +11,7 @@ tags: [NFV]
 - [知乎](https://zhuanlan.zhihu.com/p/40049446)
 - [SRI/OV DPDK](https://www.metaswitch.com/blog/accelerating-the-nfv-data-plane)
 - [FD.io Takes Over VPP](https://www.metaswitch.com/blog/fd.io-takes-over-vpp)
+- [Introduction to DPDK: Architecture and Principles](https://blog.selectel.com/introduction-dpdk-architecture-principles/)
 
 -------------------------
 
