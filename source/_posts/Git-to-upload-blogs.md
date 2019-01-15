@@ -1,8 +1,8 @@
 ---
 title: Using git to upload your blogs
 date: 2018-12-09
-tags: [blog_conf]
-categories: blog
+tags: [blog]
+categories: Blog
 ---
 
 - Links worth of considerring
@@ -14,11 +14,13 @@ categories: blog
 
 - Configure SSH-key of github
 > `ssh-keygen -t rsa -C your-email`
-> put the id_rsa.pub in your github ssh settings
+> put the id-rsa.pub in your github ssh settings
 
 - Git pull the repository of github
 > `git clone git@github.com:Leopold-Sun/Leopold-Sun.github.io.git`
 > 
+
+<!-- more -->
 
 - Connect local repository with remote one
 > `git remote add origin git@github.com:Leopold-Sun/Leopold-Sun.github.io.git` *"origin" presents remote repository*

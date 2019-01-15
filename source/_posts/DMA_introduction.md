@@ -2,9 +2,10 @@
 title: Introduction to DMA solutions
 date: 2017-10-10 14:08
 tags: [NFV]
+categories: NFV
 ---
 
-### Referrences
+### References
 
 - [What is VPP](https://wiki.fd.io/view/VPP/What_is_VPP%3F)
 - [FD.io VPP](https://wiki.fd.io/view/VPP)
@@ -12,6 +13,8 @@ tags: [NFV]
 - [SRI/OV DPDK](https://www.metaswitch.com/blog/accelerating-the-nfv-data-plane)
 - [FD.io Takes Over VPP](https://www.metaswitch.com/blog/fd.io-takes-over-vpp)
 - [Introduction to DPDK: Architecture and Principles](https://blog.selectel.com/introduction-dpdk-architecture-principles/)
+
+<!--more -->
 
 -------------------------
 

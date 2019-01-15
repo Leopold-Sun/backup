@@ -2,6 +2,8 @@
 title: Configure ethernet to vpp instance using dpdk
 date: 2018-12-10 17:08
 tags: [VPP]
+categories: VPP
+description: Let dpdk drive the ethernet and be used by vpp instances.
 ---
 
 ### Preliminaries
@@ -26,6 +28,8 @@ tags: [VPP]
 > `reboot`
 > reboot your machine to make the grub configuration valid
 > `cat /proc/cmdline` to check again
+
+<!-- more -->
 
 ### Check ethernet stats and bind it to dpdk
 

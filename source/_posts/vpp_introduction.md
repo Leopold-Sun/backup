@@ -2,9 +2,10 @@
 title: An biref introduction to FD.io VPP
 date: 2018-12-17 14:12
 tags: [VPP]
+categories: VPP
 ---
 
-### Used links
+### References
 
 - [What is VPP](https://wiki.fd.io/view/VPP/What_is_VPP%3F)
 - [FD.io VPP](https://wiki.fd.io/view/VPP)
@@ -15,9 +16,11 @@ tags: [VPP]
 ----------------------------------------
 
 ### Vector Packet Processing
-- - [What is VPP](https://wiki.fd.io/view/VPP/What_is_VPP%3F)
+- [What is VPP](https://wiki.fd.io/view/VPP/What_is_VPP%3F)
 
 > *VPP uses vector processing as opposed to scalar processing. Scalar packet processing refers to the processing of one packet at a time. That older, traditional approach entails processing an interrupt, and traversing the call stack (a calls b calls c... return return return from the nested calls... then return from Interrupt). That process then does one of 3 things: punt, drop, or rewrite/forward the packet.*
+
+<!-- more -->
 
 #### 标量包处理的弊端
 

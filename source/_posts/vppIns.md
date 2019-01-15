@@ -2,7 +2,7 @@
 title: VPP instructions
 date: 2018-12-09
 tags: [VPP,NIC,DPDK,VFIO-PCI]
-categories: VPP userspace stack
+categories: VPP
 ---
 
 ##### _非交互模式（Linux下）_
@@ -18,6 +18,8 @@ ip link add veth0 type veth peer name veth1
 ip addr add 10.1.0.1/24 dev veth0
 ip addr add 10.1.0.2/24 dev veth1
 ```
+
+<!-- more -->
 
 Linux查看接口信息：ip addr show <NIC name>
 
@@ -69,14 +71,9 @@ VPP设置接口rx、tx队列大小：set dpdk interface descriptors interface0/0
 
 查看主线程cpu亲和性：show affinity
 
-
-
-
-
-#### **vpp command links**
+#### References
 
 > vpp命令总结：https://wanwang.aliyun.com/info/1580284.html
->
 > vpp安装运行：https://wanwang.aliyun.com/info/1580286.html?spm=5176.100101.0.0.5b3b5bf7mY16H8
 
 **Linux-Networking Conmmand Links**

@@ -1,7 +1,8 @@
 ---
 title: How to compile shared library
 date: 2018-12-12 14:02
-tags: [Compiler]
+tags: [Library]
+categories: Shared Library
 ---
 
 - `gcc -fPIC -shared ${target source file}.c -o ${target name}.so`
@@ -11,6 +12,8 @@ tags: [Compiler]
 -shared该选项指定生成动态连接库（让连接器生成T类型的导出符号表，有时候也生成弱连
 接W类型的导出符号），不用该标志外部程序无法连接。相当于一个可执行文件
 -fPIC：表示编译为位置独立的代码，不用此选项的话编译后的代码是位置相关的所以动态<font color="#729FCF">&gt;</font>载入时是通过代码拷贝的方式来满足不同进程的需要，而不能达到真正代码段共享的目的。
+
+<!-- more -->
 
 - `gcc ${source}.c -L. -ltest -o ${target file name}`
 

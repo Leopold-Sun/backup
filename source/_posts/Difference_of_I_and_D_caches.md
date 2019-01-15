@@ -2,6 +2,7 @@
 title: Differences between I & D - cache
 date: 2018-12-12 21:25
 tags: [hardware architecture]
+categories: Hardware Architecture
 ---
 
 ### Preliminaries
@@ -14,6 +15,8 @@ tags: [hardware architecture]
 
 > From [Wikipedia](https://en.wikipedia.org/wiki/)
 > *A CPU cache is a hardware cache used by the central processing unit (CPU) of a computer to reduce the average cost (time or energy) to access data from the main memory. A cache is a smaller, faster memory, closer to a processor core, which stores copies of the data from frequently used main memory locations. Most CPUs have different independent caches, including instruction and data caches, where the data cache is usually organized as a hierarchy of more cache levels (L1, L2, L3, L4, etc.). Almost all current CPUs with caches have a split L1 cache. They also have L2 caches and, for larger processors, L3 caches as well. The L2 cache is usually not split and acts as a common repository for the already split L1 cache. Every core of a multi-core processor has a dedicated L2 cache and is usually not shared between the cores. The L3 cache, and higher-level caches, are shared between the cores and are not split.*
+
+<!-- more -->
 
 #### Disk caching
 

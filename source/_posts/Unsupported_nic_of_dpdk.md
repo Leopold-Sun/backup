@@ -2,6 +2,7 @@
 title: How to know that your nic is supported by dpdk or not
 date: 2018-12-11 16:55
 tags: [VPP]
+categories: VPP
 ---
 
 - Preliminary
@@ -16,6 +17,8 @@ tags: [VPP]
 > If this instruction goes wrong, perhaps the needed module is not be inserted or moduled
 > `modprobe vfio-pci`
 > `insmod ${path}/igb_uio.ko`
+
+<!-- more -->
 
 - Configure vpp startup.conf which resides in /etc/vpp
 
